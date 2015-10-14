@@ -1,0 +1,29 @@
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/index")
+def index():
+    return " Index File "
+
+@app.route("/hello")
+def hello():
+    return " Hello World "
+
+@app.route("/")
+def hello2():
+    return " Hello World! "
+
+@app.route("/user/<username>")
+def show_user_profile(username):
+#this returns the username that was entered 
+
+ return " User %s " %username
+
+@app.route("/post/<int:post_id>")
+def show_post(post_id):
+
+#this returns the number that was entered
+  return " Post %d " % post_id
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0",port=8080,debug=True)
